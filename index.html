@@ -1,0 +1,103 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Hub - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Volunteer Hub</div>
+    <button class="hamburger" id="hamburger-menu" aria-label="Toggle menu">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+      <a href="login.html">Log-In</a>
+      <a href="register.html" class="btn btn-blue">Sign-Up</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="container" style="text-align: center;">
+    <h1>Make a Difference Today</h1>
+    <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem;">Connect with local organizations and volunteer for causes you care about.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+      <a href="register.html" class="btn btn-blue">Sign Up</a>
+      <a href="dashboard.html" class="btn btn-outline">Continue as Guest</a>
+    </div>
+  </section>
+
+  <!-- Two Choice Cards -->
+  <section class="container grid-2">
+    <div class="card" style="text-align: center;">
+      <h2>I'm a Volunteer</h2>
+      <p>Find events, track your hours, and give back to your community.</p>
+      <br>
+      <a href="register.html" class="btn btn-green">Join as Volunteer</a>
+    </div>
+    <div class="card" style="text-align: center;">
+      <h2>I'm an Organization</h2>
+      <p>Post events, manage volunteers, and grow your impact.</p>
+      <br>
+      <a href="register.html" class="btn btn-blue">Register Organization</a>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="container" style="background-color: var(--light-gray); border-radius: 8px;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">How it works</h2>
+    <div class="grid-4">
+      <div style="text-align: center;">
+        <h3>1. Sign up</h3>
+        <p>Create your free account.</p>
+      </div>
+      <div style="text-align: center;">
+        <h3>2. Find an event</h3>
+        <p>Browse local opportunities.</p>
+      </div>
+      <div style="text-align: center;">
+        <h3>3. Apply</h3>
+        <p>Register with one click.</p>
+      </div>
+      <div style="text-align: center;">
+        <h3>4. Track hours</h3>
+        <p>Build your volunteer resume.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Showcase Section -->
+  <section class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Making a Difference Together</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <img src="treeplanting.jpeg" alt="Environmental Programs" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem;">
+        <h3>Environmental Programs</h3>
+        <p>Join tree planting drives and environmental projects that help create a greener and healthier community.</p>
+      </div>
+
+      <div class="card">
+        <img src="holdinghands.jpeg" alt="Community Volunteers" style="width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem;">
+        <h3>Community Volunteers</h3>
+        <p>Meet passionate volunteers and work together to make a positive impact in local communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background: #222; color: #fff; text-align: center; padding: 2rem;">
+    <p>&copy; 2026 Volunteer Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+
+
+</body>
+</html>

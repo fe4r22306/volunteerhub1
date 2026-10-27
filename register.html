@@ -1,0 +1,149 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Hub - Sign-Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">Volunteer Hub</a>
+    <a href="login.html">Already have an account? Log-In</a>
+  </nav>
+
+  <main class="container">
+    <div class="card form-container">
+      <h2 style="text-align: center;">Create an Account</h2>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted); text-align: center;">Join our community and start making an impact.</p>
+
+      <!-- Account Type Toggle -->
+      <div class="toggle-container" id="register-toggle">
+        <button class="toggle-btn active" data-target="volunteer-form" type="button">Volunteer</button>
+        <button class="toggle-btn" data-target="organization-form" type="button">Organization</button>
+      </div>
+
+      <!-- VOLUNTEER FORM -->
+      <form id="volunteer-form" action="register_volunteer.php" method="POST" class="validate-form" novalidate>
+        
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required>
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="mi">M.I.</label>
+            <input type="text" id="mi" name="mi">
+          </div>
+          <div class="form-group">
+            <label for="suffix">Suffix (e.g., Jr.)</label>
+            <input type="text" id="suffix" name="suffix">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="v_email">Email Address *</label>
+          <input type="email" id="v_email" name="email" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="v_phone">Phone Number *</label>
+          <input type="tel" id="v_phone" name="phone" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="v_password">Password *</label>
+            <div class="password-wrapper">
+              <input type="password" id="v_password" name="password" required>
+              <button type="button" class="toggle-pwd">Show</button>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group">
+            <label for="v_confirm">Confirm Password *</label>
+            <div class="password-wrapper">
+              <input type="password" id="v_confirm" name="confirm_password" required>
+              <button type="button" class="toggle-pwd">Show</button>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-green" style="width: 100%; margin-top: 1rem;">Register as Volunteer</button>
+      </form>
+
+      <!-- ORGANIZATION FORM (Hidden by default) -->
+      <form id="organization-form" action="register_organization.php" method="POST" class="validate-form" novalidate style="display: none;">
+        
+        <div class="form-group">
+          <label for="org_name">Organization Name *</label>
+          <input type="text" id="org_name" name="org_name" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="contact_person">Contact Person *</label>
+          <input type="text" id="contact_person" name="contact_person" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="org_address">Headquarters / Address *</label>
+          <input type="text" id="org_address" name="org_address" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="o_email">Organization Email *</label>
+          <input type="email" id="o_email" name="email" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="o_phone">Contact Number *</label>
+          <input type="tel" id="o_phone" name="phone" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="o_password">Password *</label>
+            <div class="password-wrapper">
+              <input type="password" id="o_password" name="password" required>
+              <button type="button" class="toggle-pwd">Show</button>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group">
+            <label for="o_confirm">Confirm Password *</label>
+            <div class="password-wrapper">
+              <input type="password" id="o_confirm" name="confirm_password" required>
+              <button type="button" class="toggle-pwd">Show</button>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 1rem;">Register Organization</button>
+      </form>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

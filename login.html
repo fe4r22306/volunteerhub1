@@ -1,0 +1,51 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Hub - Log In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">Volunteer Hub</a>
+  </nav>
+
+  <main class="container">
+    <div class="card form-container" style="max-width: 450px;">
+      <h2 style="text-align: center; margin-bottom: 1.5rem;">Welcome Back</h2>
+
+      <form id="login-form" action="login.php" method="POST" class="validate-form" novalidate>
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" name="email" placeholder="e.g., user@gmail.com or org@gmail.com" required>
+          <span class="error-msg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="login-password" name="password" required>
+            <button type="button" class="toggle-pwd">Show</button>
+          </div>
+          <span class="error-msg"></span>
+          <div style="text-align: right; margin-top: 0.5rem;">
+            <a href="#" style="font-size: 0.85rem;">Forgot your password?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-blue" style="width: 100%; margin-top: 1rem;">LOG-IN</button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <p>No Account? <a href="register.html">Sign-Up</a></p>
+        <p><a href="dashboard.html" class="btn btn-outline" style="width: 100%;">Continue as Guest</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

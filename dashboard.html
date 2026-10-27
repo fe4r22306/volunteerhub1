@@ -1,0 +1,174 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Hub - Volunteer Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .prototype-banner {
+      background-color: #fff3cd;
+      color: #856404;
+      border-bottom: 1px solid #ffeeba;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+    .badge { padding: 0.25rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: 600; display: inline-block; }
+    .badge-green { background-color: #e8f8ec; color: #27ae60; }
+    .badge-blue { background-color: #e8f4f8; color: #2f9ac4; }
+    .badge-yellow { background-color: #fef9e7; color: #f39c12; }
+    .activity-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--light-gray); }
+    .activity-item:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Prototype Warning Banner -->
+  <div class="prototype-banner">
+    ⚠️ <strong>PROTOTYPE MODE:</strong> Front-end demonstration version. System features and data shown are not final.
+  </div>
+
+  <!-- Volunteer Navbar -->
+  <nav class="navbar dashboard-nav">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <button class="hamburger" id="hamburger-menu" style="color: white;" aria-label="Toggle Navigation">☰</button>
+      <a href="index.html" class="logo">Volunteer Hub</a>
+    </div>
+    
+    <div class="nav-links" id="nav-links" style="flex: 1; justify-content: center;">
+      <input type="text" placeholder="Search events by title, location, or interest..." class="search-bar">
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <span style="font-size: 1.25rem; cursor: pointer; position: relative;" title="Notifications">🔔</span>
+      
+      <div class="profile-wrapper">
+        <button class="profile-circle" id="profile-circle">V</button>
+        <div class="profile-dropdown" id="profile-dropdown">
+          <a href="#">My Profile</a>
+          <a href="#">Activity History</a>
+          <a href="#">Settings</a>
+          <hr style="border: 0; border-top: 1px solid var(--light-gray); margin: 0.5rem 0;">
+          <a href="#" id="logout-btn" style="color: var(--error-red);">Log Out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Guest Banner (Visible when browsing as Guest) -->
+    <div id="guest-banner" style="background: #e8f4f8; border-left: 4px solid var(--primary-blue); padding: 1rem; border-radius: 6px; margin-bottom: 2rem; display: none;">
+      <p style="margin: 0;">
+        <strong>You are browsing as a Guest.</strong> 
+        <a href="register.html" style="font-weight: bold; text-decoration: underline;">Create an account</a> to join events, track your service hours, and generate your attendance QR pass!
+      </p>
+    </div>
+
+    <!-- Greeting & Action Button -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+      <div>
+        <h1>Welcome back, <span id="user-display-name">Volunteer</span>! </h1>
+        <p style="color: var(--text-muted);">Here is your community volunteer activity summary for today.</p>
+      </div>
+      
+      <button class="btn btn-outline" id="show-qr-btn"> My Attendance QR Pass</button>
+      <a href="register.html" class="btn btn-blue" id="signup-qr-btn" style="display: none;">Sign Up to Get QR Pass</a>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="grid-3" style="margin-bottom: 2.5rem;">
+      <div class="card stat-card">
+        <h3>Confirmed Activities</h3>
+        <h2 id="stat-confirmed">2</h2>
+      </div>
+      <div class="card stat-card" style="border-bottom-color: var(--primary-green);">
+        <h3>Pending Requests</h3>
+        <h2 id="stat-pending">1</h2>
+      </div>
+      <div class="card stat-card" style="border-bottom-color: #f39c12;">
+        <h3>Total Hours Served</h3>
+        <h2 id="stat-hours">14 hrs</h2>
+      </div>
+    </div>
+
+    <!-- Two-Column Layout -->
+    <div class="grid-2">
+      <!-- Enrolled Activities -->
+      <div class="card">
+        <h2 style="margin-bottom: 1rem; font-size: 1.25rem;">My Activity Applications</h2>
+        
+        <div id="user-activities-list">
+          <div class="activity-item">
+            <div>
+              <strong>Community Clean-Up Drive</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Green Pilipinas • Oct 28, 2026</p>
+            </div>
+            <span class="badge badge-green">Confirmed</span>
+          </div>
+
+          <div class="activity-item">
+            <div>
+              <strong>Weekend Reading Program</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Cavite Youth Scholars • Nov 02, 2026</p>
+            </div>
+            <span class="badge badge-yellow">Pending Verification</span>
+          </div>
+
+          <div class="activity-item">
+            <div>
+              <strong>Tree Planting Initiative</strong>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Eco Cavite • Sep 14, 2026</p>
+            </div>
+            <span class="badge badge-blue">Completed (4 hrs)</span>
+          </div>
+        </div>
+
+        <div id="guest-empty-state" class="empty-state" style="padding: 1.5rem; display: none; text-align: center;">
+          <p style="color: var(--text-muted);">No activity applications yet.</p>
+          <a href="register.html" class="btn btn-green" style="margin-top: 0.75rem; font-size: 0.85rem; display: inline-block;">Sign up to Apply</a>
+        </div>
+      </div>
+
+      <!-- Recommended Opportunities -->
+      <div class="card">
+        <h2 style="margin-bottom: 1rem; font-size: 1.25rem;">Recommended Opportunities</h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Explore volunteer activities in Cavite:</p>
+        
+        <div style="background: #f9f9f9; padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem;">
+          <h4 style="color: var(--text-dark);">Coastal Clean-Up Drive</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Tanza, Cavite • Nov 10, 2026</p>
+          <a href="#" class="btn btn-green join-act-btn" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; margin-top: 0.5rem; display: inline-block;">Join Activity</a>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 1rem; border-radius: 6px;">
+          <h4 style="color: var(--text-dark);">Relief Goods Distribution</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Imus, Cavite • Nov 18, 2026</p>
+          <a href="#" class="btn btn-green join-act-btn" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; margin-top: 0.5rem; display: inline-block;">Join Activity</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Attendance QR Modal -->
+  <div class="modal-overlay" id="qr-modal">
+    <div class="modal">
+      <h3>Your Attendance QR Code</h3>
+      <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Present this code to the event organizer at the registration desk for instant check-in[cite: 8].</p>
+      <div style="margin: 1.5rem auto; width: 180px; height: 180px; background: #eee; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--primary-blue); font-weight: bold; color: var(--primary-blue);">
+        [ QR CODE PLACEHOLDER ]
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">ID: VOL-2026-0842</p>
+      <button class="btn btn-outline" id="close-qr-btn" style="margin-top: 1rem; width: 100%;">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
